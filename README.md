@@ -1,5 +1,3 @@
-# express-ts-sqlite-template
-
 # Express TypeScript Boilerplate with SQLite and Knex
 
 This repository contains a boilerplate for an Express server with TypeScript. It utilizes SQLite as the local database and Knex as the query builder, specifically designed for the development environment.
@@ -45,40 +43,80 @@ npm install
 npm run dev
 ```
 
-5. Open your web browser and visit `http://localhost:3000` to see the running server.
+5. Open your web browser and visit `http://localhost:3001` to see the running server.
 
 ## Project Structure
 
 The project structure is organized as follows:
+
 ```
 .
 ├── dist/
 │   └── ...
-├── src/
-│   ├── controllers/
-│   ├── database/
-│   ├── routes/
-│   ├── server/
-│   ├── types/
-│   └── index.ts
+├── database/
+├── index.ts
+├── knex.ts
 ├── .gitignore
 ├── package.json
 ├── tsconfig.json
 └── README.md
 ```
 
-- The `src/` directory contains the source code of the Express server.
-- The `src/controllers/` directory contains the controller logic for handling incoming requests.
-- The `src/database/` directory contains the SQLite database configuration and migration files.
-- The `src/routes/` directory contains the route definitions for the API endpoints.
-- The `src/server/` directory contains the server configuration and setup code.
-- The `src/types/` directory contains TypeScript type definitions used throughout the project.
-- The `src/index.ts` file is the entry point of the server application.
+- The `/database/` directory contains the SQLite database configuration and migration files.
+- The `index.ts` file is the entry point of the server application.
+- The `knex.ts` This knex file contains configuration that using SQLite as your local database and the migration and seed files will be stored in the `database/migrations` and `database/seeds` directories respectively.
 - The `.gitignore` file specifies which files and directories should be ignored by Git.
 - The `package.json` file lists the project dependencies and scripts.
 - The `tsconfig.json` file configures the TypeScript compiler.
 
-Feel free to modify the project structure to suit your needs.
+Here are the instructions to perform the initial Knex migration and seed data for your project using the command line:
+
+5. Create a new migration file for your table. Run the following command to generate a new migration file using the Knex CLI:
+
+   ```
+   knex migrate:make your_table_name -x ts
+   ```
+
+   Replace `your_table_name` with the name you want to give to your table. This command will create a new migration file with a timestamped filename in the `database/migrations` directory.
+
+6. Open the newly created migration file (located in the `database/migrations` directory) using your preferred code editor. In the `up` function, define the schema for your table. For example:
+
+   ```typescript
+   import { Knex } from "knex";
+
+   export const up = (knex: Knex): Knex.SchemaBuilder => {
+     return knex.schema.createTable("your_table_name", (table) => {
+       table.increments("id").primary();
+       table.string("column1").notNullable();
+       table.string("column2").notNullable();
+       // Add more columns as needed
+     });
+   };
+
+   export const down = (knex: Knex): Knex.SchemaBuilder => {
+     return knex.schema.dropTableIfExists("your_table_name");
+   };
+   ```
+
+   Modify the table name and column definitions as per your requirements.
+
+7. Run the migration to create the table. Execute the following command to run the migration and create the table in the database:
+
+   ```
+   knex migrate:latest --env development
+   ```
+
+   This command will execute the migration files in the `database/migrations` directory and create the table in the database according to the defined schema.
+
+8. Create a new seed file. Run the following command to generate a new seed file using the Knex CLI:
+
+   ```
+   knex seed:make your_seed_name -x ts
+   ```
+
+   Replace `your_seed_name` with the name you want to give to your seed file. This command will create a new seed file with a timestamped filename in the `database/seeds` directory.
+
+9. Open the newly created seed file (located in the `database/seeds` directory) using your preferred code editor. In the `seed` function, write the code
 
 ## Contributing
 
@@ -91,8 +129,12 @@ If you want to contribute to this boilerplate, please follow the guidelines in [
 - [SQLite](https://www.sqlite.org)
 - [Knex.js](http://knexjs.org)
 
-If you have any questions or issues, please don't hesitate to open an issue or reach out to the repository maintainer.
+If you have any questions or issues, please don't hesitate to open an issue or reach out to me.
 
+You can support me by [buy me donuts 🍩 ](https://bmc.link/pattsookmark)
 Happy coding!
+PattPJY
+
 ```
 
+```
