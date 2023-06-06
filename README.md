@@ -71,7 +71,7 @@ The project structure is organized as follows:
 
 Here are the instructions to perform the initial Knex migration and seed data for your project using the command line:
 
-5. Create a new migration file for your table. Run the following command to generate a new migration file using the Knex CLI:
+1. Create a new migration file for your table. Run the following command to generate a new migration file using the Knex CLI:
 
    ```
    knex migrate:make your_table_name -x ts
@@ -79,7 +79,7 @@ Here are the instructions to perform the initial Knex migration and seed data fo
 
    Replace `your_table_name` with the name you want to give to your table. This command will create a new migration file with a timestamped filename in the `database/migrations` directory.
 
-6. Open the newly created migration file (located in the `database/migrations` directory) using your preferred code editor. In the `up` function, define the schema for your table. For example:
+2. Open the newly created migration file (located in the `database/migrations` directory) using your preferred code editor. In the `up` function, define the schema for your table. For example:
 
    ```typescript
    import { Knex } from "knex";
@@ -100,7 +100,7 @@ Here are the instructions to perform the initial Knex migration and seed data fo
 
    Modify the table name and column definitions as per your requirements.
 
-7. Run the migration to create the table. Execute the following command to run the migration and create the table in the database:
+3. Run the migration to create the table. Execute the following command to run the migration and create the table in the database:
 
    ```
    knex migrate:latest --env development
@@ -108,7 +108,7 @@ Here are the instructions to perform the initial Knex migration and seed data fo
 
    This command will execute the migration files in the `database/migrations` directory and create the table in the database according to the defined schema.
 
-8. Create a new seed file. Run the following command to generate a new seed file using the Knex CLI:
+4. Create a new seed file. Run the following command to generate a new seed file using the Knex CLI:
 
    ```
    knex seed:make your_seed_name -x ts
@@ -116,7 +116,7 @@ Here are the instructions to perform the initial Knex migration and seed data fo
 
    Replace `your_seed_name` with the name you want to give to your seed file. This command will create a new seed file with a timestamped filename in the `database/seeds` directory.
 
-9. Open the newly created seed file (located in the `database/seeds` directory) using your preferred code editor. In the `seed` function, write the code
+5. Open the newly created seed file (located in the `database/seeds` directory) using your preferred code editor. In the `seed` function, write the code
 
 ## Contributing
 
