@@ -133,8 +133,7 @@ If you have any questions or issues, please don't hesitate to open an issue or r
 
 You can support me by [buy me donuts 🍩 ](https://bmc.link/pattsookmark)
 Happy coding!
-PattPJY
 
-```
+ ~ PattPJY ~
 
-```
+
