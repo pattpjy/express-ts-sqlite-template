@@ -8,6 +8,14 @@ This repository contains a boilerplate for an Express server with TypeScript. It
 - SQLite for local database storage
 - Knex as a query builder for easy and efficient database interactions
 
+## ⚠️ Limitations
+
+- Limited Database Support: The current version of the template includes SQLite as the local database option. If your project requires a different database system, you will need to modify the configuration and dependencies accordingly.
+- Development Environment Only: The template is designed to support development environments. If you plan to deploy your application to a production environment, additional configuration and setup will be required.
+- Basic CORS Configuration: The CORS middleware included in the template provides a basic configuration for handling cross-origin requests. Depending on your specific requirements, you may need to customize the CORS settings further.
+- Minimal Error Handling: The template provides a basic error handling mechanism. For production-ready applications, it is recommended to enhance error handling and implement appropriate error logging and reporting.
+- Limited Authentication and Authorization: The template does not include built-in authentication or authorization mechanisms. If your project requires user authentication or role-based access control, you will need to incorporate and customize additional libraries or modules.
+
 ## Prerequisites
 
 Before you can start using this boilerplate, make sure you have the following software installed on your machine:
